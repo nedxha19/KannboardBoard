@@ -35,3 +35,14 @@
 
   onMount(() => getUserCountry().then(loc => userLocation = loc));
 </script>
+
+<header class="sticky top-0 z-10 border-b border-black/5 backdrop-blur-xl bg-transparent">
+  <div class="max-w-7xl mx-auto px-5 py-4 flex items-center gap-4">
+    <a href={`${base}/`} class="flex items-center gap-3 group">
+      <img src={logoSrc} alt={logoAlt} width="32" height="32"
+           class="h-8 w-8 rounded-xl object-cover ring-1 ring-black/5 shadow-sm group-hover:scale-[1.02] transition-transform" />
+      <div class="leading-tight">
+        <span class="text-xl font-semibold tracking-tight text-slate-900">Kanban</span>
+        <span class="block text-[11px] uppercase tracking-[0.14em] text-slate-500">Board</span>
+      </div>
+    </a>
