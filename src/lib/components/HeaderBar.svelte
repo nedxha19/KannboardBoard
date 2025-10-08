@@ -73,6 +73,7 @@
     </button>
   </div>
 </header>
+
 <dialog id="dialog" bind:this={dialog} aria-labelledby="dialog-title"
         class="fixed inset-0 size-auto max-h-none max-w-none overflow-y-auto bg-transparent backdrop:bg-transparent">
   <div class="fixed inset-0 bg-gray-500/40 dark:bg-gray-900/40" on:click={() => dialog?.close()} aria-hidden="true"></div>
