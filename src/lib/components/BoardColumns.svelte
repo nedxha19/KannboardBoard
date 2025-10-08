@@ -73,3 +73,63 @@
     </button>
   </div>
 </header>
+
+<dialog id="dialog" bind:this={dialog} aria-labelledby="dialog-title"
+        class="fixed inset-0 size-auto max-h-none max-w-none overflow-y-auto bg-transparent backdrop:bg-transparent">
+  <div class="fixed inset-0 bg-gray-500/40 dark:bg-gray-900/40" on:click={() => dialog?.close()} aria-hidden="true"></div>
+  <div class="flex min-h-full items-end justify-center p-4 sm:items-center sm:p-0">
+    <div class="relative sm:my-8 sm:w-full sm:max-w-lg rounded-2xl shadow-xl border border-black/10 bg-transparent backdrop-blur-xl">
+      <div class="p-6">
+        <h3 id="dialog-title" class="text-base font-semibold text-gray-900 dark:text-white">Create Task</h3>
+        <form class="mt-4 space-y-3" on:submit={submit}>
+          <label class="block text-sm">
+            <span class="text-slate-700 dark:text-slate-200">Title</span>
+            <input class="mt-1 w-full rounded-lg border px-3 py-2"
+                   bind:value={model.title} required placeholder="Short summary" />
+          </label>
+
+          <label class="block text-sm">
+            <span class="text-slate-700 dark:text-slate-200">Description</span>
+            <textarea class="mt-1 w-full rounded-lg border px-3 py-2" rows="3"
+                      bind:value={model.description} placeholder="Details"></textarea>
+          </label>
+
+          <div class="grid grid-cols-2 gap-3">
+            <label class="block text-sm">
+              <span class="text-slate-700 dark:text-slate-200">Due date</span>
+              <input type="datetime-local" class="mt-1 w-full rounded-lg border px-3 py-2" bind:value={model.dueDate} />
+            </label>
+
+            <label class="block text-sm">
+              <span class="text-slate-700 dark:text-slate-200">Story points</span>
+              <input type="number" min="0" step="1" class="mt-1 w-full rounded-lg border px-3 py-2" bind:value={model.points} />
+            </label>
+
+            <label class="block text-sm">
+              <span class="text-slate-700 dark:text-slate-200">Priority</span>
+              <select class="mt-1 w-full rounded-lg border px-3 py-2" bind:value={model.priority}>
+                <option>Low</option><option>Medium</option><option>High</option><option>Critical</option>
+              </select>
+            </label>
+
+            <label class="block text-sm">
+              <span class="text-slate-700 dark:text-slate-200">Lane</span>
+              <select class="mt-1 w-full rounded-lg border px-3 py-2" bind:value={model.lane}>
+                {#each lanes as l}<option>{l}</option>{/each}
+              </select>
+            </label>
+          </div>
+
+          <div class="mt-4 flex justify-end gap-2">
+            <button type="button" class="rounded-md px-3 py-2 text-sm font-semibold hover:bg-black/5" on:click={() => dialog?.close()}>
+              Cancel
+            </button>
+            <button type="submit" class="rounded-md px-3 py-2 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800">
+              Create
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</dialog>
