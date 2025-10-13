@@ -7,3 +7,12 @@ export const requestNotificationPermission = async () => {
 	const permission = await Notification.requestPermission();
 	return permission === 'granted';
 };
+
+export const showNotification = (title, options = {}) => {
+	if (!('Notification' in window) || Notification.permission !== 'granted') return;
+	new Notification(title, {
+		icon: NOTIFICATION_ICON,
+		badge: NOTIFICATION_ICON,
+		...options
+	});
+};
