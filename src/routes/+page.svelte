@@ -6,7 +6,7 @@
   import { LANES } from '$lib/constants';
   import { loadItems, saveItems } from '$lib/utils/storage';
   import { exportToCSV } from '$lib/utils/export';
-  import { requestNotificationPermission, showNotification } from '$lib/utils/notification';
+  import { requestNotificationPermission, showNotification } from '$lib/utils/Notification';
 
   const lanes = LANES;
   
