@@ -2,7 +2,7 @@
   import { createEventDispatcher } from 'svelte';
   import { flip } from 'svelte/animate';
   import { formatDueDate, isOverdue } from '$lib/utils/date';
-  import { exportToICS, shareItem } from '$lib/utils/export';
+  import { exportToICS} from '$lib/utils/export';
   import { PRIORITY_STYLES, DEFAULT_PRIORITY } from '$lib/constants';
 
   export let lanes = [];
